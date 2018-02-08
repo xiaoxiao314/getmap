@@ -1,0 +1,19 @@
+{
+  "name": "cdmap",
+  "version": "1.0.2",
+  "description": "code to map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xiaoxiao314/getmap.git"
+  },
+  "author": "xiaoxiao314",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoxiao314/getmap/issues"
+  },
+  "homepage": "https://github.com/xiaoxiao314/getmap#readme"
+}
