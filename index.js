@@ -157,7 +157,7 @@ var getMap = function () {}
             series: [
                 {
                 type: 'candlestick',
-                name: 'K��',
+                name: 'K线',
                 data: data.values,
                 itemStyle: {
                   normal: {
@@ -217,7 +217,7 @@ var getMap = function () {}
                 }
               },
               {
-                name: '�ɽ���',
+                name: '成交量',
                 type: 'bar',
                 xAxisIndex: 1,
                 yAxisIndex: 1,
@@ -248,13 +248,13 @@ var getMap = function () {}
                 lineStyle: {
                   normal: {
                     width: 1
-                  },
+                  }
                 }
-              },
+              }
             ]
           }, true);
           window.onresize = function () {
-            resizeWorldMapContainer();//���������߿�
+            resizeWorldMapContainer();
             myChart.resize();
           };
         });
