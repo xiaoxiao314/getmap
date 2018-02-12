@@ -1,6 +1,7 @@
 
 var getMap = function () {}
 	getMap.mapInit = function (gpCode,id='container',type='D',url='http://api.zgtxcj.com/shares/get_shares/k_data/?code=') {
+		var self = this
         var downColor = '#00da3c';
         var upColor = '#ec0000';
         var dom = document.getElementById(id);
@@ -10,7 +11,7 @@ var getMap = function () {}
           dom.style.height = window.innerHeight-40+'px';
         };
         resizeWorldMapContainer ()
-        var myChart = echarts.init(dom);
+        var myChart = echarts.init(dom, null, {renderer: 'svg'});
         $.get(url + gpCode +'&format=json&type='+type, function (rawData) {
           var arr = [];
           rawData = rawData.split('\n');
@@ -20,6 +21,12 @@ var getMap = function () {}
             arr.push(tmp);
           }
           var data = splitData(arr);
+		  let mapStar = 90;
+		  if (data.categoryData.length<30) {
+            mapStar = 0
+          } else {
+            mapStar = 90
+          }
           myChart.setOption(option = {
             backgroundColor: '#fff',
             legend: {
@@ -40,7 +47,13 @@ var getMap = function () {}
                   width: 2,
                   opacity: 1
                 }
-              }
+              },
+			  position: function (pos, params, el, elRect, size) {
+                var obj = {top: 10};
+                obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = 30;
+                return obj;
+              },
+              triggerOn: 'mousemove|click',
             },
             axisPointer: {
               link: {xAxisIndex: 'all'},

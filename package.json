@@ -1,6 +1,6 @@
 {
   "name": "cdmap",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "code to map",
   "main": "index.js",
   "scripts": {
